@@ -2,7 +2,7 @@
     
 **Estructura del documento principal:**
 
-# PRESENTACIÓN (Título/Nombre Proyecto)
+# PRESENTACIÓN (ForSport. Tu tienda online de indumentaria deportiva!)
 
 **Asignatura**: Bases de Datos I (FaCENA-UNNE)
 
