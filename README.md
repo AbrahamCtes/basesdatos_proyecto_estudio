@@ -22,3 +22,4 @@ Este borrador fue elaborado usando https://stackedit.io/app#
     ->nombre_proyecto.md (documento principal estructurado por capítulos)
     
 **Estructura del documento principal:**
+Hola. Probando
