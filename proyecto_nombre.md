@@ -61,20 +61,6 @@ Donec lobortis tincidunt erat, non egestas mi volutpat in. Cras ante purus, luct
 
 Maecenas molestie lacus tincidunt, placerat dolor et, ullamcorper erat. Mauris tortor nisl, ultricies ac scelerisque nec, feugiat in nibh. Pellentesque interdum aliquam magna sit amet rutrum. 
 
-
-
-
-```mermaid
-erDiagram
-CUSTOMER  }|..|{  DELIVERY-ADDRESS  : has
-CUSTOMER  ||--o{  ORDER  : places
-CUSTOMER  ||--o{  INVOICE  : "liable for"
-DELIVERY-ADDRESS  ||--o{  ORDER  : receives
-INVOICE  ||--|{  ORDER  : covers
-ORDER  ||--|{  ORDER-ITEM  : includes
-PRODUCT-CATEGORY  ||--|{  PRODUCT  : contains
-PRODUCT  ||--o{  ORDER-ITEM  : "ordered in"
-```
 ### Diagrama relacional
 ![DIAGRAMA_RELACIONAL] (https://github.com/AbrahamCtes/basesdatos_proyecto_estudio/blob/e8137ca9fece8ff0c37a45f9ba2601df1481e7aa/diagrama_relacional_proyecto.png)
 ### Diccionario de datos
