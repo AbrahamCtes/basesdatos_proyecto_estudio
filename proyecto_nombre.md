@@ -51,7 +51,7 @@ En cuanto a los objetivos que proyectamos en el mismo visualizamos la creacion d
 
 ## CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS 
 
-### Diagrama relacional (doc/diagrama_relacional_proyecto.png)
+### Diagrama relacional (https://github.com/AbrahamCtes/basesdatos_proyecto_estudio/blob/01614020c5d0198407924c463556cea09a6cf8f9/doc/diagrama_relacional_proyecto.png)
 ### Diccionario de datos
 
 Acceso al documento [PDF](doc/diccionario_datos.pdf) del diccionario de datos.
