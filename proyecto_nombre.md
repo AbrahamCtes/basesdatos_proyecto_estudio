@@ -63,8 +63,7 @@ Maecenas molestie lacus tincidunt, placerat dolor et, ullamcorper erat. Mauris t
 
 
 
-### Diagrama conceptual (opcional)
-Ejemplo usando Live Editor https://mermaid.js.org/ (ejemplo opcional)
+
 ```mermaid
 erDiagram
 CUSTOMER  }|..|{  DELIVERY-ADDRESS  : has
