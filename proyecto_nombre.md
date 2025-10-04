@@ -7,21 +7,33 @@
 **Asignatura**: Bases de Datos I (FaCENA-UNNE)
 
 **Integrantes**:
- - Sed vel lectus nec lectus placerat laoreet et sed est.
- - Sed ac justo ac mauris porttitor convallis non sit amet felis.
- - In tincidunt augue sed molestie malesuada.
+•	Alegre Leis, Federico Gabriel
+•	Altamirano, Alex Lisandro
+•	Fernández, Lucas Agustín
+•	Sánchez, Osvaldo Abraham
 
-**Año**: 2024
+
+**Año**: 2025
 
 ## CAPÍTULO I: INTRODUCCIÓN
 
 ### Caso de estudio
 
-Maecenas molestie lacus tincidunt, placerat dolor et, ullamcorper erat. Mauris tortor nisl, ultricies ac scelerisque nec, feugiat in nibh. 
+TEMA: Implementación de una base de datos para la gestión de un sistema de ventas online en una empresa de indumentaria deportiva.
+
 
 ### Definición o planteamiento del problema
 
-Pellentesque interdum aliquam magna sit amet rutrum. Nulla aliquam ligula nec quam iaculis dictum. In cursus aliquam cursus. Nullam a sem vel sapien iaculis finibus. Donec aliquam dictum viverra. Etiam ut orci lacus.
+Como equipo nos planteamos inquietudes a la hora de definir un tipo de proyecto apto para el desarrollo del mismo dentro de la asignatura, y como opción más aceptada encontramos un sistema de ventas que puede ser adaptado al rubro deportivo. Con esto en mente indagamos cuáles son nuestras mayores inquietudes respecto al mismo y aparecieron cuestiones como: 
+¿Cómo se realiza la gestión de este tipo de sistema de ventas?.
+¿Qué tan escalable puede llegar a ser?.
+¿Qué facilidades en cuanto a las funcionalidades se pueden aportar para que sea mas amigable con los diferentes usuarios?.
+¿Será redituable para un negocio el mantenimiento del sistema?.
+¿Cómo se llevan a cabo las operaciones para llegar a algún dato calculado útil en el sistema?.
+
+OBJETIVO DEL PROYECTO:
+En cuanto a los objetivos que proyectamos en el mismo visualizamos la creacion de un sistema web autónomo que funcionará como una tienda en línea de indumentaria deportiva. Este tiene que desarrollarse como una aplicación web responsiva, y accesible desde navegadores modernos en computadoras y dispositivos móviles. Conectará con servicios externos como la pasarela de pagos Mercado Pago (billeteras virtuales), o a traves de tarjetas bancarizadas, para procesar transacciones y utilizará una base de datos relacional para almacenar información de productos, usuarios y pedidos. El sistema incluirá dos interfaces principales: una para usuarios finales (clientes) y otra para administradores.
+
 
 ## CAPITULO II: MARCO CONCEPTUAL O REFERENCIAL
 
