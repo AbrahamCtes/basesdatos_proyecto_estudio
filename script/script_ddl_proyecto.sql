@@ -23,22 +23,15 @@ CREATE TABLE talle
   CONSTRAINT UQ_talle_descripcion_talle UNIQUE (descripcion_talle)
 );
 
-CREATE TABLE stock_talle
-(
-  stock_talle_id INT IDENTITY,
-  stock INT NOT NULL,
-  talle_id INT NOT NULL,
-  CONSTRAINT PK_stock_talle PRIMARY KEY (stock_talle_id),
-  CONSTRAINT FK_stock_talle_talle FOREIGN KEY (talle_id) REFERENCES talle(talle_id)
-);
-
-CREATE TABLE tipo
+CREATE TABLE tipo 
 (
   tipo_id INT NOT NULL,
-  nombre_tipo VARCHAR NOT NULL,
+  nombre_tipo VARCHAR(100) NOT NULL,
   CONSTRAINT PK_tipo PRIMARY KEY (tipo_id),
   CONSTRAINT UQ_tipo_nombre_tipo UNIQUE (nombre_tipo)
 );
+
+
 
 CREATE TABLE marca
 (
@@ -48,13 +41,14 @@ CREATE TABLE marca
   CONSTRAINT UQ_marca_nombre_marca UNIQUE (nombre_marca)
 );
 
-CREATE TABLE estado
+CREATE TABLE estado 
 (
   estado_id INT NOT NULL,
-  descripcion_estado VARCHAR NOT NULL,
+  descripcion_estado VARCHAR(100) NOT NULL,
   CONSTRAINT PK_estado PRIMARY KEY (estado_id),
   CONSTRAINT UQ_estado_descripcion_estado UNIQUE (descripcion_estado)
 );
+
 
 CREATE TABLE categoria
 (
@@ -71,14 +65,15 @@ CREATE TABLE pais
   CONSTRAINT PK_pais PRIMARY KEY (pais_id)
 );
 
-CREATE TABLE provincia
+CREATE TABLE provincia 
 (
   provincia_id INT IDENTITY,
-  provincia_nombre VARCHAR NOT NULL,
+  provincia_nombre VARCHAR(100) NOT NULL,
   pais_id INT NOT NULL,
   CONSTRAINT PK_provincia PRIMARY KEY (provincia_id),
   CONSTRAINT FK_provincia_pais FOREIGN KEY (pais_id) REFERENCES pais(pais_id)
 );
+
 
 CREATE TABLE ciudad
 (
@@ -89,16 +84,17 @@ CREATE TABLE ciudad
   CONSTRAINT FK_ciudad_provincia FOREIGN KEY (provincia_id) REFERENCES provincia(provincia_id)
 );
 
-CREATE TABLE proveedor
+CREATE TABLE proveedor 
 (
   provedor_id INT IDENTITY,
-  proveedor_nombre VARCHAR NOT NULL,
+  proveedor_nombre VARCHAR(100) NOT NULL,
   ciudad_id INT NOT NULL,
   CONSTRAINT PK_provedor PRIMARY KEY (provedor_id),
   CONSTRAINT FK_proveedor_ciudad FOREIGN KEY (ciudad_id) REFERENCES ciudad(ciudad_id)
 );
 
-CREATE TABLE producto
+
+CREATE TABLE producto 
 (
   producto_id INT IDENTITY,
   precio_unitario FLOAT NOT NULL,
@@ -113,7 +109,17 @@ CREATE TABLE producto
   CONSTRAINT FK_producto_marca FOREIGN KEY (marca_id) REFERENCES marca(marca_id),
   CONSTRAINT FK_producto_estado FOREIGN KEY (estado_id) REFERENCES estado(estado_id),
   CONSTRAINT FK_producto_categoria FOREIGN KEY (categoria_id) REFERENCES categoria(categoria_id),
-  CONSTRAINT FK_producto_provedor FOREIGN KEY (provedor_id) REFERENCES proveedor(provedor_id),
+  CONSTRAINT FK_producto_provedor FOREIGN KEY (provedor_id) REFERENCES proveedor(provedor_id)
+);
+
+CREATE TABLE stock_talle
+(
+  stock INT NOT NULL,
+  talle_id INT NOT NULL,
+  producto_id int NOT NULL,
+  CONSTRAINT PK_stock_talle PRIMARY KEY (producto_id, talle_id),
+  CONSTRAINT FK_stock_talle_talle FOREIGN KEY (talle_id) REFERENCES talle(talle_id),
+  CONSTRAINT FK_stock_talle_producto FOREIGN KEY (producto_id) REFERENCES producto(producto_id)
 );
 
 CREATE TABLE estado_pago
@@ -144,7 +150,7 @@ CREATE TABLE venta
 (
   venta_id INT IDENTITY,
   total FLOAT NOT NULL,
-  fecha DATE DEFAULT(GETDATE()),
+  fecha DATE NOT NULL,
   usuario_id INT NOT NULL,
   estado_pago_id INT NOT NULL,
   CONSTRAINT PK_venta PRIMARY KEY (venta_id),
