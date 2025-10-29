@@ -34,6 +34,16 @@ Como equipo nos planteamos inquietudes a la hora de definir un tipo de proyecto 
 OBJETIVO DEL PROYECTO:
 En cuanto a los objetivos que proyectamos en el mismo visualizamos la creacion de un sistema web autónomo que funcionará como una tienda en línea de indumentaria deportiva. Este tiene que desarrollarse como una aplicación web responsiva, y accesible desde navegadores modernos en computadoras y dispositivos móviles. Conectará con servicios externos como la pasarela de pagos Mercado Pago (billeteras virtuales), o a traves de tarjetas bancarizadas, para procesar transacciones y utilizará una base de datos relacional para almacenar información de productos, usuarios y pedidos. El sistema incluirá dos interfaces principales: una para usuarios finales (clientes) y otra para administradores.
 
+Objetivos Generales: Crear un sistema para la gestión venta de productos online de una empresa de indumentaria deportiva que sea amigable para los usuarios y que opere de manera eficiente..
+
+Objetivos Específicos:
+Definir una interfaz amigable para los usuarios como filtro por talle, marca, y precio adaptable a dispositivos móviles.
+Definir perfiles de Administrador y Usuario para realizar las diferentes operaciones para cada uno de ellos promoviendo la seguridad del sistema. 
+Implementar diferentes métodos de pago para la compra de los productos.
+Diseñar un panel administrativo centralizado que permita gestionar productos, talles, precios, stock, pedidos y usuarios con validaciones dinámicas y retroalimentación visual.
+Diseñar una arquitectura modular que permite agregar nuevas funcionalidades (como cupones, reseñas, o nuevos métodos de pago) sin afectar el núcleo del sistema.
+Implementar reportes en tiempo real de ventas, productos más vendidos, márgenes y comportamiento de usuarios.
+
 
 ## CAPITULO II: MARCO CONCEPTUAL O REFERENCIAL
 
