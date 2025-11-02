@@ -1,4 +1,4 @@
-USE Proyecto_db;
+USE proyecto;
 
 CREATE TABLE metodo_pago
 (
@@ -188,10 +188,6 @@ ADD CONSTRAINT DF_venta_fecha DEFAULT GETDATE() FOR fecha;
 ALTER TABLE producto
 ADD CONSTRAINT CHK_producto_precio_unitario CHECK (precio_unitario >= 0);
 
---Verifica que el stock del producto no sea negativo
-ALTER TABLE stock_talle
-ADD CONSTRAINT CHK_stock_talle_stock CHECK (stock >= 0);
-
 --Verifica que la cantidad de productos no sea negativo
 ALTER TABLE detalle_venta
 ADD CONSTRAINT CHK_detalle_venta_cantidad CHECK (cantidad > 0);
@@ -204,6 +200,14 @@ ADD CONSTRAINT CHK_detalle_venta_subtotal CHECK (subtotal >= 0);
 ALTER TABLE venta
 ADD CONSTRAINT CHK_venta_total CHECK (total >= 0);
 
+--Verifica que el talle no sea negativo
+ALTER TABLE stock_talle
+ADD CONSTRAINT CHK_stock_talle_stock CHECK (stock >= 0);
+
+--Establece que el valor default del stock es 0
+ALTER TABLE stock_talle
+ADD CONSTRAINT DF_stock_talle_stock DEFAULT 0 FOR stock;
+
 --Verifica que el nombre del usuario no sea una cadena de caracteres vacia
 ALTER TABLE usuario
 ADD CONSTRAINT CHK_usuario_nombre_usuario CHECK (nombre_usuario <> '');
@@ -215,6 +219,10 @@ ADD CONSTRAINT CHK_usuario_apellido_usuario CHECK (apellido_usuario <> '');
 --Verifica que la contraseña del usuario no sea una cadena de caracteres vacia
 ALTER TABLE usuario
 ADD CONSTRAINT CHK_usuario_contraseña CHECK (contraseña <> '');
+
+--Verifica que el mail tengauna estructura valida
+ALTER TABLE usuario
+ADD CONSTRAINT CHK_usuario_email_formato CHECK (email IS NULL OR email LIKE '%_@_%_.%');
 
 --Verifica que la marca no sea una cadena de caracteres vacia
 ALTER TABLE marca
@@ -243,3 +251,6 @@ ADD CONSTRAINT CHK_provincia_provincia_nombre CHECK (provincia_nombre <> '');
 --Verifica que el nombre del pais no sea una cadena de caracteres vacia
 ALTER TABLE pais
 ADD CONSTRAINT CHK_pais_pais_nombre CHECK (pais_nombre <> '');
+
+
+
