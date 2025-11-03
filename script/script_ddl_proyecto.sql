@@ -31,8 +31,6 @@ CREATE TABLE tipo
   CONSTRAINT UQ_tipo_nombre_tipo UNIQUE (nombre_tipo)
 );
 
-
-
 CREATE TABLE marca
 (
   marca_id INT IDENTITY,
@@ -84,15 +82,24 @@ CREATE TABLE ciudad
   CONSTRAINT FK_ciudad_provincia FOREIGN KEY (provincia_id) REFERENCES provincia(provincia_id)
 );
 
-CREATE TABLE proveedor 
+CREATE TABLE domicilio
 (
-  provedor_id INT IDENTITY,
-  proveedor_nombre VARCHAR(100) NOT NULL,
+  domicilio_id INT IDENTITY,
+  altura INT NOT NULL,
+  calle VARCHAR(50) NOT NULL,
   ciudad_id INT NOT NULL,
-  CONSTRAINT PK_provedor PRIMARY KEY (provedor_id),
-  CONSTRAINT FK_proveedor_ciudad FOREIGN KEY (ciudad_id) REFERENCES ciudad(ciudad_id)
+  CONSTRAINT PK_domicilio PRIMARY KEY (domicilio_id),
+  CONSTRAINT FK_domicilio_ciudad FOREIGN KEY (ciudad_id) REFERENCES ciudad(ciudad_id)
 );
 
+CREATE TABLE proveedor 
+(
+  proveedor_id INT IDENTITY,
+  proveedor_nombre VARCHAR(100) NOT NULL,
+  domicilio_id INT NOT NULL,
+  CONSTRAINT PK_proveedor PRIMARY KEY (proveedor_id),
+  CONSTRAINT FK_proveedor_domicilio FOREIGN KEY (domicilio_id) REFERENCES domicilio(domicilio_id)
+);
 
 CREATE TABLE producto 
 (
@@ -103,13 +110,13 @@ CREATE TABLE producto
   marca_id INT NOT NULL,
   estado_id INT NOT NULL,
   categoria_id INT NOT NULL,
-  provedor_id INT NOT NULL,
+  proveedor_id INT NOT NULL,
   CONSTRAINT PK_producto PRIMARY KEY (producto_id),
   CONSTRAINT FK_producto_tipo FOREIGN KEY (tipo_id) REFERENCES tipo(tipo_id),
   CONSTRAINT FK_producto_marca FOREIGN KEY (marca_id) REFERENCES marca(marca_id),
   CONSTRAINT FK_producto_estado FOREIGN KEY (estado_id) REFERENCES estado(estado_id),
   CONSTRAINT FK_producto_categoria FOREIGN KEY (categoria_id) REFERENCES categoria(categoria_id),
-  CONSTRAINT FK_producto_provedor FOREIGN KEY (provedor_id) REFERENCES proveedor(provedor_id)
+  CONSTRAINT FK_producto_proveedor FOREIGN KEY (proveedor_id) REFERENCES proveedor(proveedor_id)
 );
 
 CREATE TABLE stock_talle
@@ -135,15 +142,16 @@ CREATE TABLE usuario
   usuario_id INT IDENTITY,
   nombre_usuario VARCHAR(50) NOT NULL,
   apellido_usuario VARCHAR(50) NOT NULL,
-  telefono VARCHAR(20),
-  email VARCHAR(50) NULL,
-  contraseña VARCHAR(20) NOT NULL,
+  telefono VARCHAR(30) NULL,
+  email VARCHAR(50) NOT NULL,
+  contrasena VARCHAR(200) NOT NULL,
   perfil_id INT NOT NULL,
+  domicilio_id INT NOT NULL,
   CONSTRAINT PK_usuario PRIMARY KEY (usuario_id),
   CONSTRAINT FK_usuario_perfil FOREIGN KEY (perfil_id) REFERENCES perfil(perfil_id),
+  CONSTRAINT FK_usuario_domicilio FOREIGN KEY (domicilio_id) REFERENCES domicilio(domicilio_id),
   CONSTRAINT UQ_usuario_telefono UNIQUE (telefono),
-  CONSTRAINT UQ_usuario_email UNIQUE (email),
-  CONSTRAINT UQ_usuario_contaseña UNIQUE (contraseña)
+  CONSTRAINT UQ_usuario_email UNIQUE (email)
 );
 
 CREATE TABLE venta
@@ -171,18 +179,26 @@ CREATE TABLE venta_metodo_pago
 CREATE TABLE detalle_venta
 (
   cantidad INT NOT NULL,
-  subtotal FLOAT NOT NULL,
+  precio_uni FLOAT NOT NULL,
+  subtotal AS (cantidad * precio_uni) PERSISTED,
+  talle_id INT NOT NULL,
   producto_id INT NOT NULL,
   venta_id INT NOT NULL,
-  CONSTRAINT PK_detalle_venta PRIMARY KEY (producto_id, venta_id),
+  CONSTRAINT PK_detalle_venta PRIMARY KEY (producto_id, venta_id, talle_id),
   CONSTRAINT FK_detalle_venta_producto FOREIGN KEY (producto_id) REFERENCES producto(producto_id),
+  CONSTRAINT FK_detalle_venta_talle FOREIGN KEY (talle_id) REFERENCES talle(talle_id),
   CONSTRAINT FK_detalle_venta_venta FOREIGN KEY (venta_id) REFERENCES venta(venta_id)
 );
+
 -- Restricciones --
 
 --Establece un valor default en la fecha de venta
 ALTER TABLE venta
 ADD CONSTRAINT DF_venta_fecha DEFAULT GETDATE() FOR fecha;
+
+--Verifica que la fecha de venta no sea futura
+ALTER TABLE venta
+ADD CONSTRAINT CHK_venta_fecha CHECK (fecha <= GETDATE());
 
 --Verifica que el precio del producto no sea negativo
 ALTER TABLE producto
@@ -192,9 +208,9 @@ ADD CONSTRAINT CHK_producto_precio_unitario CHECK (precio_unitario >= 0);
 ALTER TABLE detalle_venta
 ADD CONSTRAINT CHK_detalle_venta_cantidad CHECK (cantidad > 0);
 
---Verifica que el subtotal del detalle_venta no sea negativo
+--Verifica que el precio unitario del detalle_venta no sea negativo
 ALTER TABLE detalle_venta
-ADD CONSTRAINT CHK_detalle_venta_subtotal CHECK (subtotal >= 0);
+ADD CONSTRAINT CHK_detalle_venta_precio_uni CHECK (precio_uni >= 0);
 
 --Verifica que el total de la venta no sea negativo
 ALTER TABLE venta
@@ -218,7 +234,7 @@ ADD CONSTRAINT CHK_usuario_apellido_usuario CHECK (apellido_usuario <> '');
 
 --Verifica que la contraseña del usuario no sea una cadena de caracteres vacia
 ALTER TABLE usuario
-ADD CONSTRAINT CHK_usuario_contraseña CHECK (contraseña <> '');
+ADD CONSTRAINT CHK_usuario_contrasena CHECK (contrasena <> '');
 
 --Verifica que el mail tengauna estructura valida
 ALTER TABLE usuario
@@ -252,5 +268,40 @@ ADD CONSTRAINT CHK_provincia_provincia_nombre CHECK (provincia_nombre <> '');
 ALTER TABLE pais
 ADD CONSTRAINT CHK_pais_pais_nombre CHECK (pais_nombre <> '');
 
+-- Triggers --
+
+--Actualiza el monto total de la venta al insertar actualizar y borrar registros en detalle_venta
+CREATE TRIGGER trg_actualizar_total_venta
+ON detalle_venta
+AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
+    UPDATE v
+    SET v.total = (
+        SELECT ISNULL(SUM(d.subtotal), 0)
+        FROM detalle_venta d
+        WHERE d.venta_id = v.venta_id
+    )
+    FROM venta v
+    WHERE v.venta_id IN (
+        SELECT venta_id FROM inserted
+        UNION
+        SELECT venta_id FROM deleted
+    );
+END;
+
+--Actualiza el stock de los productos cuando se registra una venta
+CREATE TRIGGER trg_actualizar_stock
+ON detalle_venta
+AFTER INSERT
+AS
+BEGIN
+    UPDATE st
+    SET st.stock_actual = st.stock_actual - i.cantidad
+    FROM stock_talle st
+    JOIN inserted i 
+      ON st.producto_id = i.producto_id
+     AND st.talle_id = i.talle_id;
+END;
 
 
