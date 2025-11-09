@@ -5,12 +5,12 @@ DROP TABLE usuario_con_indice
 SELECT *
 INTO usuario_con_indice
 FROM usuario
-WHERE 1 = 0; -- Esto copia solo la estructura. -- Esto asegura que solo se copie la estructura
+WHERE 1 = 0; -- Esto asegura que solo se copie la estructura
 
 --Carga de un millon de datos
 
 DECLARE @i INT = 0;					-- Primero se declara una variable de contador
-WHILE @i < 5				    -- Luego se inicia un bucle que se repetirá un millón de veces
+WHILE @i < 1000000				    -- Luego se inicia un bucle que se repetirá un millón de veces
 BEGIN
     INSERT INTO usuario_con_indice(
     nombre_usuario, 
@@ -39,3 +39,4 @@ FROM usuario_con_indice
 
 SET STATISTICS TIME ON; -- Muestra el tiempo el tiempo de CPU y tiempo total de ejecucion.
 SET STATISTICS IO ON; -- Muestra la cantidad de operaciones de lectura de pagina para monitorear la entrada/salida.
+
