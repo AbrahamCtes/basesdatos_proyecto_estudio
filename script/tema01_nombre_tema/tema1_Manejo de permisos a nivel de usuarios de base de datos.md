@@ -1,9 +1,19 @@
 Tema 1: Manejo de permisos a nivel de usuarios de base de datos.
   Los permisos de bases de datos en SQL Server son reglas que determinan qué acciones puede realizar un usuario o rol dentro de una base de datos específica.
   Son fundamentales para proteger los datos, organizar el acceso y evitar errores o abusos.
-  Usuarios de bases de datos: Un usuario de base de datos en SQL Server es una identidad dentro de una base específica que representa a alguien (o algo) que puede acceder y operar sobre los objetos de esa base de datos, que son las tablas, vistas, procedimientos, etc.
-  Los permisos y roles de bases de datos en SQL Server sirven para controlar el acceso y las acciones que cada usuario puede realizar dentro de una base de datos.
+  Usuarios de bases de datos: Un usuario de base de datos es una identidad dentro de una base específica que representa a alguien (o algo) que puede acceder y operar sobre los objetos de esa base de datos, que son las tablas, vistas, procedimientos, etc.
+  Los permisos y roles de bases de datos en SQL Server sirven para controlar el acceso y las acciones que cada usuario puede realizar dentro de una base de datos. 
   Son fundamentales para garantizar la seguridad, la integridad de los datos y una administración eficiente.
+  PERMISOS:
+  Los permisos son derechos que se asignan a un usuario, así se define que puede hacer o no en una base de datos.
+Se pueden agregar permisos específicos a diferentes usuarios.
+  La mayoría de la asignacion de permiso tienen el siguiente formato:
+  <authorization> <permission> ON <securable>::<name> TO <principal>;
+     Donde:
+     <authorization> debe ser GRANT, REVOKEo DENY.
+     <permission> establece la acción que permite o prohíbe.
+     ON <securable>::<name> es el tipo de elemento protegible (servidor, objeto de servidor, base de datos u objeto de base de datos) y su nombre.
+  ROLES:
   Un rol de bases de datos es un conjunto de permisos que pueden ser asignados a uno o varios usuarios, que tentrán permisos comunes.
   Existen dos tipos de roles en el nivel de base de datos: los roles fijos de base de datos que están predefinidos en la base de datos y los roles de base de datos definidos por el usuario que el usuario puede crear.
   Los roles fijos de base de datos se definen en el nivel de base de datos y existen en cada una de ellas.
@@ -16,13 +26,6 @@ Tema 1: Manejo de permisos a nivel de usuarios de base de datos.
     - db_datawriter: puede INSERT, UPDATE, DELETE en todas las tablas.
     - db_ddladmin: puede crear y modificar objetos.
 
-Se pueden agregar permisos específicos a diferentes usuarios.
-  La mayoría de la asignacion de permiso tienen el siguiente formato:
-  <authorization> <permission> ON <securable>::<name> TO <principal>;
-     Donde:
-     <authorization> debe ser GRANT, REVOKEo DENY.
-     <permission> establece la acción que permite o prohíbe.
-     ON <securable>::<name> es el tipo de elemento protegible (servidor, objeto de servidor, base de datos u objeto de base de datos) y su nombre.
      Algunos permisos no requieren <securable>::<name> porque es inequívoco o inadecuado en el contexto.
      <principal> es la entidad de seguridad (inicio de sesión, usuario o rol) que recibe o pierde el permiso. En este caso sería un usuario.
       Ejemplos:
@@ -34,7 +37,11 @@ Se pueden agregar permisos específicos a diferentes usuarios.
       REVOKE: Revoca permiso previamente otorgado o denegado.
       DENY: Niega permiso explícitamente (tiene prioridad sobre GRANT).
 
+      ROLES A NIVEL DE SERVIDOR: Los permisos a nivel de servidor en un DBMS como SQL Server son privilegios que afectan a toda la instancia del servidor, no solo a una base de datos específica. Se gestionan mediante roles fijos de servidor (como sysadmin, serveradmin, securityadmin) y permiten realizar tareas globales como crear bases de datos, administrar logins, configurar el servidor o detener la instancia del servidor.
+      PERMISOS Y ROLES A NIVEL DE BASES DE DATOS: Los permisos a nivel de base de datos son privilegios que se aplican dentro de una base específica, no en todo el servidor.
+Controlan qué operaciones puede realizar un usuario sobre los objetos de esa base   DE DATOS  por ejemplo, Tablas, Vistas, Procedimientos, Esquemas, etc.
       Conclusión: EL MANEJO DE PERMISOS Y ROLES DE BASES DE DATOS SON MUY UTILES EN TERMINOS DE SEGURIDAD, PORQUE NO PERMITE EL ACCESO NO DESEADO DE LOS DATOS Y TAMBIEN PROTEGER LA INTEGRIDAD DE LOS DATOS.
       EN LOS SISTEMAS DE INFORMACIÓN ES MUY IMPORTANTE GARANTIZAR LA SEGURIDAD DE LOS DATOS PARA QUE LOS USUARIOS CONFÍEN EN QUE SUS DATOS ESTÁN PROTEGIDOS.
       TAMBIEN AYUDA A PODER ASIGNAR LAS FUNCIONES QUE PUEDEN EJERCER CADA USUARIO DEL SISTEMA Y FACILITAR LA ASIGNACIÓN DE ROLES PARA CADA FUNCIONALIDAD E IMPEDIR EL ACCESO A DATOS QUE NO SON ACORDE A SU FUNCIONALIDAD.
       
+
