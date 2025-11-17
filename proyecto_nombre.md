@@ -31,7 +31,7 @@ Como equipo nos planteamos inquietudes a la hora de definir un tipo de proyecto 
 ¿Será redituable para un negocio el mantenimiento del sistema?.
 ¿Cómo se llevan a cabo las operaciones para llegar a algún dato calculado útil en el sistema?.
 
-##OBJETIVO DEL PROYECTO:
+## OBJETIVO DEL PROYECTO:
 En cuanto a los objetivos que proyectamos en el mismo visualizamos la creacion de un sistema web autónomo que funcionará como una tienda en línea de indumentaria deportiva. Este tiene que desarrollarse como una aplicación web responsiva, y accesible desde navegadores modernos en computadoras y dispositivos móviles. Conectará con servicios externos como la pasarela de pagos Mercado Pago (billeteras virtuales), o a traves de tarjetas bancarizadas, para procesar transacciones y utilizará una base de datos relacional para almacenar información de productos, usuarios y pedidos. El sistema incluirá dos interfaces principales: una para usuarios finales (clientes) y otra para administradores.
 
 Objetivos Generales: Crear un sistema para la gestión venta de productos online de una empresa de indumentaria deportiva que sea amigable para los usuarios y que opere de manera eficiente..
@@ -56,7 +56,7 @@ El uso de está herramienta nos permite organizar los datos de manera eficiente 
 Como resultado obtendremos un sistema capaz de guardar los productos, proveedores y usuarios de manera segura y sin alterar los datos de estas entidades ni que se mezclen entre ellos. Así los clientes podrán comprar los productos de manera fácil y segura. Y el usuario del sistema promociona sus productos, realiza compras a los proveedores y vende los productos con distintos métodos de pago.
 
 
-# **Tema 1: Manejo de permisos a nivel de usuarios de base de datos.**
+## ** Tema 1: Manejo de permisos a nivel de usuarios de base de datos. **
 
   Los permisos de bases de datos en SQL Server son reglas que determinan qué acciones puede realizar un usuario o rol dentro de una base de datos específica. 
   Los permisos y roles de bases de datos en SQL Server sirven para controlar el acceso y las acciones que cada usuario puede realizar dentro de una base de datos. 
@@ -117,7 +117,7 @@ En SQL Server, cuando se ejecuta un `BEGIN TRANSACTION` dentro de otra transacci
 * Simplificar la **auditoría** y trazabilidad de cambios, al agrupar operaciones en bloques lógicos.  
 * Optimizar la **seguridad lógica**, asegurando que las reglas de negocio se cumplan de forma integral.
 
-# **Tema 4: Indices Columnares ** #
+## ** Tema 4: Indices Columnares ** #
 ### ¿Que Hacen los indices columnares? ###
 Los indices columnares usan el almacenamiento de datos basado en columnas, lo que permite lograr ganancias de hasta 10 veces el rendimiento de las consultas en el almacenamiento de datos sobre el almacenamiento tradicional orientado a filas.
 
