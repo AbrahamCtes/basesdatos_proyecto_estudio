@@ -102,7 +102,7 @@ Se los usan principalmente para consultas y analisis operativos en tiempo real.
 Para su aplicacion, se utiliza:
 `CREATE COLUMNSTORE INDEX idx_columnstore ON tabla`
 
-> Acceder a la siguiente carpeta para la descripción completa del tema [scripts-> tema_2](script/tema04_Indices_Columnares)
+> Acceder a la siguiente carpeta para la descripción completa del tema [scripts-> tema_4](script/tema04_Indices_Columnares)
 
 ... 
 
