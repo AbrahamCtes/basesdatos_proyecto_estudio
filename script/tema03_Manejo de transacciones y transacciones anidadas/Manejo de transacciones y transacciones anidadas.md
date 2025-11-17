@@ -1,7 +1,7 @@
-#**Tema 3:**   
-#**Manejo de transacciones y transacciones anidadas**
+# **Tema 3:**   
+# **Manejo de transacciones y transacciones anidadas**
 
-##Introducción
+## Introducción
 
 El manejo de transacciones en SQL garantiza que un conjunto de operaciones se ejecute como una unidad atómica: o se completan todas, o ninguna. Las transacciones anidadas son transacciones iniciadas dentro de otra transacción, pero en SQL Server no son independientes: solo la transacción externa controla el COMMIT o ROLLBACK.
 
@@ -13,7 +13,7 @@ Una transacción es un bloque de instrucciones que asegura las propiedades **ACI
 * **Durabilidad**: una vez confirmada, los cambios son permanentes.
 
 
-##Manejo de transacciones
+## Manejo de transacciones
 
 En SQL Server se manejan con:
 
@@ -37,7 +37,7 @@ ELSE
     COMMIT; -- confirma los cambios
 ```
 
-##Transacciones anidadas
+## Transacciones anidadas
 
 En SQL Server, cuando se ejecuta un `BEGIN TRANSACTION` dentro de otra transacción, no se crea una transacción independiente. En realidad, se incrementa un contador interno (`@@TRANCOUNT`).
 
@@ -67,7 +67,7 @@ COMMIT;              -- @@TRANCOUNT = 1
 COMMIT;              -- @@TRANCOUNT = 0 → se confirma todo
 ```
 
-##Control de errores en transacciones
+## Control de errores en transacciones
 
 Las transacciones permiten manejar errores con `TRY...CATCH` y decidir si confirmar (`COMMIT`) o revertir (`ROLLBACK`).
 
@@ -86,7 +86,7 @@ En SQL Server los errores se manejan con:
 * **END CATCH** – Termina captura de error  
 * **ERROR\_MESSAGE()** → devuelve el texto del error para diagnóstico.
 
-##Ventajas:
+## Ventajas:
 
 * Proporcionar **durabilidad**: los cambios confirmados persisten incluso ante fallos del sistema.   
 * Permitir el **control de errores** con **`TRY...CATCH`** y decidir entre **`COMMIT`** o **`ROLLBACK`**.  
@@ -96,6 +96,6 @@ En SQL Server los errores se manejan con:
 * Simplificar la **auditoría** y trazabilidad de cambios, al agrupar operaciones en bloques lógicos.  
 * Optimizar la **seguridad lógica**, asegurando que las reglas de negocio se cumplan de forma integral.
 
-##Conclusiones del tema
+## Conclusiones del tema
 
 Tras realizar realizar los casos de prueba y aprender sobre el tema de transacciones puedo concluir que las transacciones en SQL Server aseguran que varias operaciones se ejecuten como una sola unidad, garantizando que los datos solo se actualicen si todo el proceso termina con éxito. En los casos de prueba se comprobó que, ante errores como claves foráneas inválidas o restricciones de stock, el uso de **TRY...CATCH** con **ROLLBACK** evita cambios parciales y mantiene la consistencia. Las transacciones simples son más directas y suficientes para la mayoría de escenarios, mientras que las transacciones anidadas permiten mayor control en procesos complejos, aunque en SQL Server dependen del contador **@@TRANCOUNT** y un fallo interno puede revertir todo. En conclusión, el uso correcto de transacciones, ya sean simples o anidadas, es fundamental para garantizar integridad, confiabilidad y control de errores en la base de datos.
