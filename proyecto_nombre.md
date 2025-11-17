@@ -67,6 +67,11 @@ Como resultado obtendremos un sistema capaz de guardar los productos, proveedore
  **a) Cómo se realizó el Trabajo Práctico**
 
  **b) Herramientas (Instrumentos y procedimientos)**
+ El trabajo se realizo utilizando las siguientes herramientas:
+ 1. Se utilizo MySQL como el sistema de gestor de bases de datos relacional, seleccionado por su robustez y facilidad de uso.
+ 2. Se empleo Microsoft SQL Server para el desarrollo y escritura de las consultas SQL.
+ 3. Mediante ERDplus elaboramos un diagrama en el modelo relacional a partir de especificaciones de los requerimientos que fueron surgiendo al plantear el problema en cuestión.
+ 4. Se utilizo GitHub como plataforma de control de versiones y colaboracion en equipo. Permitiendo compartir, revisar y fusionar las partes del trabajo del equipo de manera eficiente.
 
 ## CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS 
 
