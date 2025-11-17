@@ -66,7 +66,7 @@ Como resultado obtendremos un sistema capaz de guardar los productos, proveedore
      - Se pueden agregar permisos específicos a diferentes usuarios. La mayoría de la asignacion de permiso tienen el siguiente formato:
       `<authorization> <permission> ON <securable>::<name> TO <principal>;`
        
-## ROLES: 
+### ROLES: 
 
   Un rol de bases de datos es un conjunto de permisos que pueden ser asignados a uno o varios usuarios, que tentrán permisos comunes.
   - Existen dos tipos de roles en el nivel de base de datos: los roles fijos de base de datos que están predefinidos en la base de datos y los roles de base de datos definidos por el usuario que el usuario puede crear.
@@ -80,11 +80,11 @@ Como resultado obtendremos un sistema capaz de guardar los productos, proveedore
 - PERMISOS Y ROLES A NIVEL DE BASES DE DATOS: <br> Los permisos a nivel de base de datos son privilegios que se aplican dentro de una base específica, no en todo el servidor.
 Controlan qué operaciones puede realizar un usuario sobre los objetos de esa base de datos  por ejemplo, Tablas, Vistas, Procedimientos, Esquemas, etc.
 
-**TEMA 2 " ----- "** 
+## **TEMA 2 " ----- "** 
 
 ## **Tema 3: Manejo de transacciones y transacciones anidadas**
 
-## Introducción
+### Introducción
 
 El manejo de transacciones en SQL garantiza que un conjunto de operaciones se ejecute como una unidad atómica: o se completan todas, o ninguna. Las transacciones anidadas son transacciones iniciadas dentro de otra transacción, pero en SQL Server no son independientes: solo la transacción externa controla el COMMIT o ROLLBACK.
 
@@ -96,7 +96,7 @@ Una transacción es un bloque de instrucciones que asegura las propiedades **ACI
 * **Durabilidad**: una vez confirmada, los cambios son permanentes.
 
 
-## Transacciones anidadas
+### Transacciones anidadas
 
 En SQL Server, cuando se ejecuta un `BEGIN TRANSACTION` dentro de otra transacción, no se crea una transacción independiente. En realidad, se incrementa un contador interno (`@@TRANCOUNT`).
 
@@ -107,7 +107,7 @@ En SQL Server, cuando se ejecuta un `BEGIN TRANSACTION` dentro de otra transacci
 * Si en el nivel interno se ejecuta **`ROLLBACK`**, se cancela toda la transacción, no solo la parte interna.
 
 
-## Ventajas:
+### Ventajas:
 
 * Proporcionar **durabilidad**: los cambios confirmados persisten incluso ante fallos del sistema.   
 * Permitir el **control de errores** con **`TRY...CATCH`** y decidir entre **`COMMIT`** o **`ROLLBACK`**.  
