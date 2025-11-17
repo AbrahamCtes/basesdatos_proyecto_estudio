@@ -45,7 +45,16 @@ Diseñar una arquitectura modular que permite agregar nuevas funcionalidades (co
 Implementar reportes en tiempo real de ventas, productos más vendidos, márgenes y comportamiento de usuarios.
 
 
-## CAPITULO II: MARCO CONCEPTUAL O REFERENCIAL
+## CAPITULO II: MARCO CONCEPTUAL O REFERENCIAL <br>
+Como problemática del sector de ventas de productos de una tienda, es que se enfrentan a los cambios que producen las nuevas tecnologías que es la compra de productos en línea que es hoy día más utilizado por su facilidad de compra sin moverse de casa. Por eso es indispensable crear un sistema que permita dicha compra de los productos que ofrece nuestra tienda de indumentaria deportiva, de esta manera poder llegar a más clientes.
+
+Para ello se ha realizado un análisis del problema y se ha encontrado la necesidad de crear una página web para la venta de nuestros productos.
+Para organizar los datos hemos utilizado SQL Server que es un motor de bases de datos relacional que nos permite almacenar los datos de nuestra tienda de manera organizada y segura.
+Para ello se han diseñado tablas que definen los elementos de nuestro sistemas, entre los principales son producto, usuario, proveedor, categoría de los productos entre otros.
+El uso de está herramienta nos permite organizar los datos de manera eficiente y segura cuidando la integridad de los datos.
+
+Como resultado obtendremos un sistema capaz de guardar los productos, proveedores y usuarios de manera segura y sin alterar los datos de estas entidades ni que se mezclen entre ellos. Así los clientes podrán comprar los productos de manera fácil y segura. Y el usuario del sistema promociona sus productos, realiza compras a los proveedores y vende los productos con distintos métodos de pago.
+
 
 **TEMA 1 " ---- "** 
 
