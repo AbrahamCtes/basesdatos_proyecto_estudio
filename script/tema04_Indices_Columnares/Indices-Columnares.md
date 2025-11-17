@@ -15,3 +15,9 @@ No es recomendable usar cuando:
 - Si la columna tiene muy pocos valores únicos (por ejemplo, una columna booleana o de estado), el índice no será muy útil.
 - Columnas de texto o datos binarios muy grandes.
 - Si la consulta utiliza la columna como filtro y devuelve un porcentaje muy alto (90% de la tabla como ejemplo)de los datos de la tabla, el índice no es beneficioso.
+
+### Creacion de un indice columnar ###
+'CREATE COLUMNSTORE INDEX idx_columnstore ON tabla'
+
+### Eliminacion de un indice columnar ###
+'DROP INDEX idx_columnstore ON tabla'
