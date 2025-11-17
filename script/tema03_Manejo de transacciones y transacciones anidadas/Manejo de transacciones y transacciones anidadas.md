@@ -1,5 +1,4 @@
-# **Tema 3:**   
-# **Manejo de transacciones y transacciones anidadas**
+ # **Tema 3: Manejo de transacciones y transacciones anidadas**
 
 ## Introducción
 
