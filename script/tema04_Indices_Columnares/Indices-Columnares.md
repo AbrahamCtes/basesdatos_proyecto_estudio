@@ -31,3 +31,6 @@ No es recomendable usar cuando:
 ### Desventajas: ###
 
 - No es adecuado para cargas de trabajo con muchas actualizaciones, inserciones o eliminaciones, ya que los índices Columnstore son más adecuados para consultas de solo lectura.
+
+### Conclusiones: ###
+EL uso de indice columnar en una tabla de datos mejora la eficiencia en las consultas, siempre y cuando se apliquen en los contextos correctos ya mencionados, en las pruebas tambien se pudo comprobar que su uso mejoro el rendimiento en la consulta, lo que demuestra que mejora las consultas que requieren un análisis intensivo de datos en grandes volúmenes.
