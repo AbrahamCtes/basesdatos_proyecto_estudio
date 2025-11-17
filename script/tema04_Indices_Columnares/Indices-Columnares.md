@@ -21,3 +21,13 @@ No es recomendable usar cuando:
 
 ### Eliminacion de un indice columnar ###
 ` DROP INDEX idx_columnstore ON tabla `
+
+### Ventajas: ###
+
+- Mejora el rendimiento de consultas analíticas complejas.
+- Reduce el espacio en disco debido a la alta tasa de compresión de datos.
+- Optimiza la velocidad de las consultas de agregación y filtrado, especialmente en grandes volúmenes de datos.
+
+### Desventajas: ###
+
+- No es adecuado para cargas de trabajo con muchas actualizaciones, inserciones o eliminaciones, ya que los índices Columnstore son más adecuados para consultas de solo lectura.
