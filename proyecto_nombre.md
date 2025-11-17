@@ -94,11 +94,15 @@ Proin aliquet mauris id ex venenatis, eget fermentum lectus malesuada. Maecenas 
 
 > Acceder a la siguiente carpeta para la descripción completa del tema [scripts-> tema_2](script/tema02_nombre_tema)
 
-### Desarrollo TEMA 4 "----"
+### Desarrollo TEMA 4 "Indices Columnares"
 
-Proin aliquet mauris id ex venenatis, eget fermentum lectus malesuada. Maecenas a purus arcu. Etiam pellentesque tempor dictum. 
+Los índices columnares en SQL Server (o columnstore indexes) son un tipo de índice optimizado para consultas analíticas y procesamiento de grandes volúmenes de datos.
+En lugar de almacenar los datos por filas (como en los índices tradicionales), los almacenan por columnas, lo que mejora la compresión y la velocidad de lectura en escenarios de data warehousing o business intelligence.
+Se los usan principalmente para consultas y analisis operativos en tiempo real.
+Para su aplicacion, se utiliza:
+`CREATE COLUMNSTORE INDEX idx_columnstore ON tabla`
 
-> Acceder a la siguiente carpeta para la descripción completa del tema [scripts-> tema_2](script/tema02_nombre_tema)
+> Acceder a la siguiente carpeta para la descripción completa del tema [scripts-> tema_2](script/tema04_Indices_Columnares)
 
 ... 
 
