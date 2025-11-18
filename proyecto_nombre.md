@@ -87,7 +87,9 @@ Controlan qué operaciones puede realizar un usuario sobre los objetos de esa ba
 Los índices son estructuras de datos que permiten a SQL Server localizar y recuperar filas con mayor eficacia, ahorrando tiempo y recursos informáticos. Los índices funcionan organizando los datos de forma que permitan búsquedas más rápidas. En lugar de escanear toda la tabla fila a fila (un proceso conocido como escaneo de la tabla), SQL Server puede utilizar el índice para encontrar las filas necesarias mucho más rápidamente que si tuviera que recorrer cada entrada de la tabla.
 
 Hay dos tipos fundamentales de índices en SQL Server:
+
 •	Índices agrupados: Determina el orden físico de los datos de una tabla. Cuando se crea un índice agrupado en una tabla, las filas se almacenan en el disco en el orden de la columna indexada. Esto es especialmente beneficioso para las consultas de rango, ya que permite un acceso secuencial eficiente a las filas.
+
 •	Índices no agrupados: Los índices no agrupados no afectan al orden físico de los datos. En su lugar, crean una estructura independiente que contiene punteros a las filas de datos reales. Los índices no agrupados son útiles para mejorar el rendimiento de las consultas que filtran u ordenan basándose en columnas no incluidas en el índice agrupado.
 
 ### Ventajas:
