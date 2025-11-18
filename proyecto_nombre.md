@@ -204,8 +204,9 @@ Se los usan principalmente para consultas y analisis operativos en tiempo real.
 
 ## CAPÍTULO V: CONCLUSIONES
 
-Nunc sollicitudin purus quis ante sodales luctus. Proin a scelerisque libero, vitae pharetra lacus. Nunc finibus, tellus et dictum semper, nisi sem accumsan ligula, et euismod quam ex a tellus. 
-
+El MANEJO DE PERMISOS y roles de bases de datos son muy utiles en terminos de seguridad, porque no permite el acceso no deseado de los datos y tambien protegen la integridad de los datos.
+De mas esta decir que en los sistemas de información es muy importante garantizar la seguridad de los datos para que los usuarios confíen en que sus datos están protegidos. 
+Ademas, de esta manera tambien se ayuda a poder asignar las funciones que pueden ejercer cada usuario del sistema y facilitar la asignación de roles para cada funcionalidad e impedir el acceso a datos que no son acorde a su funcionalidad.
 
 
 ## BIBLIOGRAFÍA DE CONSULTA
