@@ -157,7 +157,8 @@ Es recomendable usar un indice columnar en los siguientes casos:
 ## CAPÍTULO III: METODOLOGÍA SEGUIDA 
 
  **a) Cómo se realizó el Trabajo Práctico**
-En primera instancia se definio el ojeto de estudio del proyecto a realizar, dado un acuerdo comun entre los integrantes en base a un proyecto a su vez llevado a cabo en otra asignatura, se establecieron los requerimientos necesarios para cumplir con las reglamentaciones del informe que solicitaron los profesores de la materia 'Base de Datos I' y se delegaron tareas pertinentes a cada integrante logrando en reiteradas ocasiones puestas en comun para el avance del mismo.
+ 
+En primera instancia se definio el objeto de estudio del proyecto a realizar, dado un acuerdo comun entre los integrantes en base a un proyecto a su vez llevado a cabo en otra asignatura, se establecieron los requerimientos necesarios para cumplir con las reglamentaciones del informe que solicitaron los profesores de la materia 'Base de Datos I' y se delegaron tareas pertinentes a cada integrante logrando en reiteradas ocasiones puestas en comun para el avance del mismo.
  
 
  **b) Herramientas (Instrumentos y procedimientos)**
