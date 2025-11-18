@@ -214,6 +214,12 @@ Las TRANSACCIONES en SQL Server aseguran que varias operaciones se ejecuten como
 Se usaron casos de prueba donde quedo registrado que al ocurrir errores tales como claves foráneas inválidas o restricciones de stock, el uso de TRY...CATCH con ROLLBACK evita cambios parciales y mantiene la consistencia. 
 El uso de transacciones simples permiten un manejo mas directo y suficiente para la mayoría de escenarios. A su vez las transacciones anidadas permiten mayor control en procesos complejos, aunque en SQL Server dependen del contador @@TRANCOUNT y un fallo interno puede revertir todo. De esta manera, el uso correcto de transacciones, ya sean simples o anidadas, es fundamental para garantizar integridad, confiabilidad y control de errores en la base de datos.
 
+EL uso de INDICES COLUMNARES en una tabla de datos mejora la eficiencia en las consultas, siempre y cuando se apliquen en los contextos correctos ya mencionados, en las pruebas tambien se pudo comprobar que su uso mejoro el rendimiento en la consulta, lo que demuestra que mejora las consultas que requieren un análisis intensivo de datos en grandes volúmenes.
+Presentando beneficios como: Mejora en la velocidad de las consultas analíticas esultando ideales para consultas que involucran WHERE, JOIN, ORDER BY y GROUP BY, ya que solo cargan en memoria los segmentos de las columnas utilizadas.
+Compresión de datos, lo que reduce los requisitos de almacenamiento y acelera la lectura.
+Procesamiento paralelo: al paralelizar la carga de trabajo entre varios procesadores, mejoran el rendimiento de las consultas.
+Utilizan menos recursos de CPU y memoria para tareas específicas, especialmente en cargas de trabajo pesadas, lo que se traduce en mayor eficiencia.
+
 
 ## BIBLIOGRAFÍA DE CONSULTA
 
