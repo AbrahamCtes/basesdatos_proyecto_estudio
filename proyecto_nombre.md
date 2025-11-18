@@ -181,7 +181,7 @@ Los permisos de bases de datos en SQL Server son reglas que determinan qué acci
 
 ### Desarrollo TEMA 2 "Optimización de consultas a través de índices"
 
-Proin aliquet mauris id ex venenatis, eget fermentum lectus malesuada. Maecenas a purus arcu. Etiam pellentesque tempor dictum. 
+La optimización de consultas a través de índices en SQL mejora el rendimiento de las bases de datos al acelerar la recuperación de datos, reduciendo el tiempo de ejecución y el consumo de recursos. Los índices agrupados ordenan físicamente los datos de la tabla, son más rápidos en la recuperación porque no necesitan pasos de búsqueda adicionales y solo puede haber uno por tabla. Los índices no agrupados almacenan información en una ubicación separada, requieren más espacio y permiten crear múltiples índices en una tabla, lo que es útil para búsquedas frecuentes en columnas específicas.  
 
 > Acceder a la siguiente carpeta para la descripción completa del tema [scripts-> tema_2](script/tema02_nombre_tema)
 
