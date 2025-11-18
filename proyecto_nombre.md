@@ -204,10 +204,11 @@ Se los usan principalmente para consultas y analisis operativos en tiempo real.
 
 ## CAPÍTULO V: CONCLUSIONES
 
-El MANEJO DE PERMISOS y roles de bases de datos son muy utiles en terminos de seguridad, porque no permite el acceso no deseado de los datos y tambien protegen la integridad de los datos.
+El MANEJO DE PERMISOS Y ROLES DE BASES DE DATOS son muy utiles en terminos de seguridad, porque no permite el acceso no deseado de los datos y tambien protegen la integridad de los datos.
 De mas esta decir que en los sistemas de información es muy importante garantizar la seguridad de los datos para que los usuarios confíen en que sus datos están protegidos. 
 Ademas, de esta manera tambien se ayuda a poder asignar las funciones que pueden ejercer cada usuario del sistema y facilitar la asignación de roles para cada funcionalidad e impedir el acceso a datos que no son acorde a su funcionalidad.
 
+La OPTIMIZACION DEL RENDIMIENTO DE UNA BUSQUEDA SQL SIN INDICES, Y CON INDICES muestra una mejora drástica. Sin índices, la búsqueda implica un table scan que recorre la tabla completa, siendo muy ineficiente. Un índice clúster ordena físicamente los datos de la tabla y es más rápido para las consultas que usan la columna indexada, ya que va directamente a los datos. Un índice no clúster crea una estructura de datos separada que apunta a la ubicación de los datos, lo que es útil cuando se necesita indexar múltiples columnas o cuando no se puede tener un índice clúster. 
 
 ## BIBLIOGRAFÍA DE CONSULTA
 
