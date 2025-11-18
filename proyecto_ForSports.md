@@ -226,9 +226,12 @@ Utilizan menos recursos de CPU y memoria para tareas específicas, especialmente
 
 ## BIBLIOGRAFÍA DE CONSULTA
 
- 1. List item
- 2. List item
- 3. List item
- 4. List item
- 5. List item
+ 
+•   1-Fernández Isern, G., Colomer Vila, J., Hernández Olasagarre, M. B., & Blanco García, E. Gestión de datos: Triggers, procedimientos y funciones. Universitat Oberta de Catalunya, 2023. Disponible en: UOC
+• 	2-Calbimonte, D. Funciones frente a los procedimientos almacenados en SQL Server. SQLShack, 2019. Disponible en: SQLShack
+• 	3-Sierra, E. Optimización de consultas con índices en SQL: Guía práctica para programadores. Informática Sierra, 2025. Disponible en: Informática Sierra
+• 	4-DataCamp. Optimización de consultas SQL: 15 técnicas para mejorar el rendimiento. Blog de ingeniería de datos, 2025. Disponible en: DataCamp
+• 	5-Microsoft Learn. Transacciones (Transact-SQL) – SQL Server. Documentación oficial. Disponible en: Microsoft Learn
+• 	6-DataCamp. Comprender las Transacciones SQL: Guía completa. Tutorial actualizado en 2025. Disponible en: DataCamp
+
 
