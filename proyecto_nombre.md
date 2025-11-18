@@ -210,6 +210,11 @@ Ademas, de esta manera tambien se ayuda a poder asignar las funciones que pueden
 
 La OPTIMIZACION DEL RENDIMIENTO DE UNA BUSQUEDA SQL SIN INDICES, Y CON INDICES muestra una mejora drástica. Sin índices, la búsqueda implica un table scan que recorre la tabla completa, siendo muy ineficiente. Un índice clúster ordena físicamente los datos de la tabla y es más rápido para las consultas que usan la columna indexada, ya que va directamente a los datos. Un índice no clúster crea una estructura de datos separada que apunta a la ubicación de los datos, lo que es útil cuando se necesita indexar múltiples columnas o cuando no se puede tener un índice clúster. 
 
+Las TRANSACCIONES en SQL Server aseguran que varias operaciones se ejecuten como una sola unidad, garantizando que los datos solo se actualicen si todo el proceso termina con éxito. 
+Se usaron casos de prueba donde quedo registrado que al ocurrir errores tales como claves foráneas inválidas o restricciones de stock, el uso de TRY...CATCH con ROLLBACK evita cambios parciales y mantiene la consistencia. 
+El uso de transacciones simples permiten un manejo mas directo y suficiente para la mayoría de escenarios. A su vez las transacciones anidadas permiten mayor control en procesos complejos, aunque en SQL Server dependen del contador @@TRANCOUNT y un fallo interno puede revertir todo. De esta manera, el uso correcto de transacciones, ya sean simples o anidadas, es fundamental para garantizar integridad, confiabilidad y control de errores en la base de datos.
+
+
 ## BIBLIOGRAFÍA DE CONSULTA
 
  1. List item
